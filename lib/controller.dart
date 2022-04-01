@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 
 class Controller {
-  var _contador = Observable(0);
+  final _contador = Observable(0);
 
   Action? incrementar;
 
