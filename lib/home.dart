@@ -12,14 +12,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
-
   Controller controller = Controller();
 
   @override
@@ -37,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Observer(builder: (_) {
               return Text(
-                '${controller.contador}',
+                '${controller.counter}',
                 style: Theme.of(context).textTheme.headline4,
               );
             }),
@@ -46,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          controller.incrementar!();
+          controller.increments();
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

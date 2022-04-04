@@ -1,18 +1,14 @@
 import 'package:mobx/mobx.dart';
+part 'controller.g.dart';
 
-class Controller {
-  final _contador = Observable(0);
+class Controller = ControllerBase with _$Controller;
 
-  Action? incrementar;
+abstract class ControllerBase with Store {
+  @observable
+  int counter = 0;
 
-  int get contador => _contador.value;
-  set contador(int value) => _contador.value = value;
-
-  Controller() {
-    incrementar = Action(_incrementar);
-  }
-
-  _incrementar() {
-    contador = contador + 1;
+  @action
+  increments() {
+    counter++;
   }
 }
