@@ -24,24 +24,38 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: TextField(
+                decoration: const InputDecoration(labelText: "E-mail"),
+                keyboardType: TextInputType.emailAddress,
+                onChanged: controller.setEmail,
+              ),
             ),
-            Observer(builder: (_) {
-              return Text(
-                '${controller.counter}',
-                style: Theme.of(context).textTheme.headline4,
-              );
-            }),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: TextField(
+                decoration: const InputDecoration(labelText: "Senha"),
+                onChanged: controller.setSenha,
+                obscureText: true,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Observer(builder: (context) {
+                return Visibility(
+                  child: const Text('Campos não validados'),
+                  visible: !controller.formularioValidado,
+                );
+              }),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          controller.increments();
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: () {},
+        tooltip: 'LOGAR',
+        child: const Icon(Icons.check),
       ),
     );
   }
